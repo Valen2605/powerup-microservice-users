@@ -1,5 +1,8 @@
 package com.pragma.powerup.usermicroservice.adapters.driving.http.dto.request;
 
+
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,12 +11,35 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 public class UserRequestDto {
+    @NotEmpty(message = "The name must not be empty")
     private String name;
+
+    @NotEmpty(message = "The surname must not be empty")
     private String surname;
+
+    @NotEmpty(message = "The dniNumber must not be empty")
+    @Column(unique = true, nullable = false, length = 20)
+    @Pattern(regexp = "\\d*", message = "The document must be numeric")
     private String dniNumber;
+
+    @NotEmpty(message = "The phone must not be empty")
+    @Pattern(regexp = "^\\+?[0-9]{1,12}$", message = "The phone should only include the + sign and a maximum of 12 numbers")
     private String phone;
+
+    @NotNull(message = "The birth Date must not be empty")
+    @Past(message = "Date of birth must be prior to the date entered")
     private Date birthDate;
+
+    @NotEmpty(message = "The email must not be empty")
+    @Email(message= "You must enter a correct email format")
     private String mail;
+
+    @NotEmpty(message = "The password must not be empty")
     private String password;
+
+    @NotNull(message = "The role must not be empty")
+    @Min(value = 1, message = "The role id must not be less than 1")
+    @Max(value = 4, message = "The role id must not be greater than 4")
     private Long idRole;
+
 }
