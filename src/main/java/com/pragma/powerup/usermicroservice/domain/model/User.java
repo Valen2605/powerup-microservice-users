@@ -1,5 +1,6 @@
 package com.pragma.powerup.usermicroservice.domain.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class User {
@@ -8,13 +9,13 @@ public class User {
     private String surname;
     private String dniNumber;
     private String phone;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String mail;
     private String password;
     private Role role;
 
 
-    public User(Long id, String name, String surname, String dniNumber, String phone, Date birthDate, String mail, String password, Role role) {
+    public User(Long id, String name, String surname, String dniNumber, String phone, LocalDate birthDate, String mail, String password, Role role) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -66,13 +67,9 @@ public class User {
         this.phone = phone;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
+    public LocalDate getBirthDate() { return birthDate;}
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
+    public void setBirthDate(LocalDate birthDate) {this.birthDate = birthDate;}
 
     public String getMail() {
         return mail;

@@ -8,6 +8,8 @@ import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.RoleNotFoundException;
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.UserAlreadyExistsException;
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.UserNotFoundException;
+import com.pragma.powerup.usermicroservice.domain.exceptions.UserNotCreatedException;
+import com.pragma.powerup.usermicroservice.domain.exceptions.UserUnderageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -22,16 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static com.pragma.powerup.usermicroservice.configuration.Constants.MAIL_ALREADY_EXISTS_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.NO_DATA_FOUND_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.PERSON_ALREADY_EXISTS_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.PERSON_NOT_FOUND_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.RESPONSE_ERROR_MESSAGE_KEY;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.ROLE_NOT_ALLOWED_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.ROLE_NOT_FOUND_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.USER_ALREADY_EXISTS_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.USER_NOT_FOUND_MESSAGE;
-import static com.pragma.powerup.usermicroservice.configuration.Constants.WRONG_CREDENTIALS_MESSAGE;
+import static com.pragma.powerup.usermicroservice.configuration.Constants.*;
 
 @ControllerAdvice
 public class ControllerAdvisor {
@@ -104,4 +97,19 @@ public class ControllerAdvisor {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, ROLE_NOT_FOUND_MESSAGE));
     }
+
+    @ExceptionHandler(UserUnderageException.class)
+    public ResponseEntity<Map<String, String>> handleUserUnderageException(
+            UserUnderageException userUnderageException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, USER_NO_CREATED_UNDERAGE_MESSAGE));
+    }
+
+    @ExceptionHandler(UserNotCreatedException.class)
+    public ResponseEntity<Map<String, String>> handleUserNotCreatedException(
+            UserNotCreatedException userNotCreatedException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, USER_NO_CREATED_MESSAGE));
+    }
+
 }

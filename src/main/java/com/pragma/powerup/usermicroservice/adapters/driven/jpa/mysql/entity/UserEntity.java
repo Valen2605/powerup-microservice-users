@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -29,7 +30,7 @@ public class UserEntity {
     private String surname;
     private String dniNumber;
     private String phone;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String mail;
     private String password;
 

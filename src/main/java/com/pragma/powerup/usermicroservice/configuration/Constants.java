@@ -12,6 +12,8 @@ public class Constants {
     public static final int MAX_PAGE_SIZE = 2;
     public static final String RESPONSE_MESSAGE_KEY = "message";
     public static final String USER_CREATED_MESSAGE = "User created successfully";
+    public static final String USER_NO_CREATED_UNDERAGE_MESSAGE = "The owner must be of legal age";
+    public static final String USER_NO_CREATED_MESSAGE = "Owner could not be created";
     public static final String USER_DELETED_MESSAGE = "User deleted successfully";
     public static final String RESPONSE_ERROR_MESSAGE_KEY = "error";
     public static final String WRONG_CREDENTIALS_MESSAGE = "Wrong credentials";

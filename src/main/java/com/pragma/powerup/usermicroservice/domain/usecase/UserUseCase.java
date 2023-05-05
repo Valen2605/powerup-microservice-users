@@ -1,9 +1,11 @@
 package com.pragma.powerup.usermicroservice.domain.usecase;
 
 import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
+import com.pragma.powerup.usermicroservice.domain.exceptions.UserUnderageException;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class UserUseCase implements IUserServicePort {
@@ -15,7 +17,17 @@ public class UserUseCase implements IUserServicePort {
 
     @Override
     public void saveUser(User user) {
-        userPersistencePort.saveUser(user);
+        LocalDate localDate = LocalDate.now();
+        Integer currentYear = localDate.getYear();
+        Integer yearBirth = user.getBirthDate().getYear();
+        Integer age = currentYear - yearBirth;
+
+        if (age < 18) throw new UserUnderageException();
+
+        if (user.getRole().getId() != 2 ) throw new UserUnderageException();
+
+
+        if (user.getRole().getId() == 2 && age >= 18) userPersistencePort.saveUser(user);
     }
 
     @Override
