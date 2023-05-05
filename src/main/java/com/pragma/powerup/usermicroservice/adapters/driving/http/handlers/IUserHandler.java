@@ -6,7 +6,7 @@ import com.pragma.powerup.usermicroservice.adapters.driving.http.dto.response.Us
 import java.util.List;
 
 public interface IUserHandler {
-    void saveUser(UserRequestDto userRequestDto);
+    void saveOwner(UserRequestDto userRequestDto);
     void deleteUser(UserRequestDto userRequestDto);
     List<UserResponseDto> getProvider(Integer page);
     UserResponseDto getProvider(Long id);
