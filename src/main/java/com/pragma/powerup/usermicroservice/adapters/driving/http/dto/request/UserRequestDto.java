@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @Getter
@@ -28,7 +28,7 @@ public class UserRequestDto {
 
     @NotNull(message = "The birth Date must not be empty")
     @Past(message = "Date of birth must be prior to the date entered")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @NotEmpty(message = "The email must not be empty")
     @Email(message= "You must enter a correct email format")
