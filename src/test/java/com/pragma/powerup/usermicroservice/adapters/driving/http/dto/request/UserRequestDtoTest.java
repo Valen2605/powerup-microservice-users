@@ -19,8 +19,8 @@ class UserRequestDtoTest {
         assertEquals("123456", userRequestDto.getDniNumber());
         assertEquals("+123456789", userRequestDto.getPhone());
         assertEquals(LocalDate.of(1987,5,26), userRequestDto.getBirthDate());
-        assertEquals("john.doe@example.com", userRequestDto.getMail());
-        assertEquals("password123", userRequestDto.getPassword());
+        assertEquals("valentina@mail.com", userRequestDto.getMail());
+        assertEquals("3456", userRequestDto.getPassword());
         assertEquals(1L, userRequestDto.getIdRole());
     }
 
