@@ -36,4 +36,9 @@ public class UserUseCase implements IUserServicePort {
         if (user.getRole().getId() == Constants.OWNER_ROLE_ID && age >= minimunAge) userPersistencePort.saveOwner(user);
 
     }
+
+    @Override
+    public User getOwner(Long id) {
+        return userPersistencePort.getOwner(id);
+    }
 }
