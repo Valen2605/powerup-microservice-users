@@ -23,7 +23,7 @@ public class UserRequestDto {
     private String dniNumber;
 
     @NotEmpty(message = "The phone must not be empty")
-    @Pattern(regexp = "^\\+?[0-9]{1,12}$", message = "The phone should only include the + sign and a maximum of 12 numbers")
+    @Pattern(regexp = "^\\+?[0-9]{12}$", message = "The phone should only include the + sign and a maximum of 12 numbers")
     private String phone;
 
     @NotNull(message = "The birth Date must not be empty")
@@ -38,8 +38,8 @@ public class UserRequestDto {
     private String password;
 
     @NotNull(message = "The role must not be empty")
-    @Min(value = 1, message = "The role id must not be less than 1")
-    @Max(value = 4, message = "The role id must not be greater than 4")
+    @Min(value = 1, message = "The role chosen is not correct")
+    @Max(value = 4, message = "The role chosen is not correct")
     private Long idRole;
 
 }

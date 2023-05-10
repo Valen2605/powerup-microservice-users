@@ -12,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.pragma.powerup.usermicroservice.configuration.Constants.CLIENT_ROLE_ID;
-
 @RequiredArgsConstructor
 @Transactional
 public class UserMysqlAdapter implements IUserPersistencePort {

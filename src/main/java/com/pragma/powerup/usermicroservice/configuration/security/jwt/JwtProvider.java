@@ -75,7 +75,6 @@ public class JwtProvider {
             JWTClaimsSet claims = jwt.getJWTClaimsSet();
             String nombreUsuario = claims.getSubject();
             List<String> roles = claims.getStringListClaim("roles");
-            //List<String> roles = (List<String>) claims.getClaim("roles");
 
             return Jwts.builder()
                     .setSubject(nombreUsuario)
