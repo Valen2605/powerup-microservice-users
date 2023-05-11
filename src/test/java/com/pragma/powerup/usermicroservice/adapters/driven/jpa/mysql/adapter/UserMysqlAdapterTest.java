@@ -46,7 +46,7 @@ class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given a user when saveUser then save the user in the repository")
-    public void saveUserTest() {
+    void saveUserTest() {
         // Arrange
         User user = new User(1L,"Valentina", "Santa", "123456",
                 "123456789", LocalDate.of(1987,5,26), "valentina@email.com",
@@ -67,7 +67,7 @@ class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given an existing user dni number when saveUser then throw UserAlreadyExistsException")
-    public void saveUserWithExistingDniNumberTest() {
+    void saveUserWithExistingDniNumberTest() {
         // Arrange
         User user = new User(1L,"Valentina", "Santa", "123456",
                 "123456789", LocalDate.of(1987,5,26), "valentina@email.com",
@@ -80,7 +80,7 @@ class UserMysqlAdapterTest {
 
     @Test
     @DisplayName("Given an existing user email when saveUser then throw MailAlreadyExistsException")
-    public void saveUserWithExistingEmailTest() {
+    void saveUserWithExistingEmailTest() {
         // Arrange
         User user = new User(1L,"Valentina", "Santa", "123456",
                 "123456789", LocalDate.of(1987,5,26), "valentina@email.com",

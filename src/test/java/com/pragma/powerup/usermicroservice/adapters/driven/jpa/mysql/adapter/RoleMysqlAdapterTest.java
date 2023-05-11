@@ -37,7 +37,7 @@ class RoleMysqlAdapterTest {
     }
 
     @Test
-    public void shouldGetAllRolesSuccessfully() {
+    void shouldGetAllRolesSuccessfully() {
         // Arrange
         RoleEntity roleEntity1 = new RoleEntity();
         roleEntity1.setId(1L);
@@ -74,7 +74,7 @@ class RoleMysqlAdapterTest {
     }
 
     @Test
-    public void shouldThrowNoDataFoundExceptionWhenNoRolesAreFound() {
+    void shouldThrowNoDataFoundExceptionWhenNoRolesAreFound() {
         // Arrange
         when(roleRepository.findAll()).thenReturn(Arrays.asList());
         when(roleEntityMapper.toRoleList(Arrays.asList())).thenReturn(Arrays.asList());

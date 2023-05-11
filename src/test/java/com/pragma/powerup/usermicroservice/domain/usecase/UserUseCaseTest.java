@@ -37,7 +37,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void saveUserOwner_validOwnerUser_callsPersistencePort() {
+    void saveUserOwner_validOwnerUser_callsPersistencePort() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383", LocalDate.of(1990, 1, 1),"9239292","299293", new Role(Constants.OWNER_ROLE_ID, "ROLE_OWNER","ROLE_OWNER"));
 
@@ -49,7 +49,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void saveUserOwner_invalidRoleUser_throwsRoleNotCreated() {
+    void saveUserOwner_invalidRoleUser_throwsRoleNotCreated() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383", LocalDate.of(1990, 1, 1),"9239292","299293", new Role(Constants.ADMIN_ROLE_ID, "ROLE_ADMIN","ROLE_ADMIN"));
 
@@ -58,7 +58,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void validateAge_validOwnerAge_callsPersistencePort() {
+    void validateAge_validOwnerAge_callsPersistencePort() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383", LocalDate.of(2000, 1, 1),"9239292","299293", new Role(Constants.OWNER_ROLE_ID, "ROLE_OWNER","ROLE_OWNER"));
 
@@ -71,7 +71,7 @@ class UserUseCaseTest {
     }
 
     @Test
-    public void validateAge_invalidOwnerAge_throwsOwnerMustBeOfLegalAge() {
+    void validateAge_invalidOwnerAge_throwsOwnerMustBeOfLegalAge() {
         // Arrange
         User user = new User(1L, "John", "Doe","John@gmail.com","288383", LocalDate.of(2020, 1, 1),"9239292","299293", new Role(Constants.OWNER_ROLE_ID, "ROLE_ADMIN","ROLE_ADMIN"));
 

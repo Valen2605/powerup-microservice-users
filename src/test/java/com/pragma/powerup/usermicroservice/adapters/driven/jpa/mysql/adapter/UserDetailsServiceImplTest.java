@@ -34,7 +34,7 @@ class UserDetailsServiceImplTest {
     }
 
     @Test
-    public void shouldThrowUsernameNotFoundExceptionWhenUserIsNotFound() {
+    void shouldThrowUsernameNotFoundExceptionWhenUserIsNotFound() {
         // Arrange
         String documentID = "12345678";
         Mockito.when(userRepository.findByDniNumber(documentID)).thenReturn(Optional.empty());
@@ -44,7 +44,7 @@ class UserDetailsServiceImplTest {
     }
 
     @Test
-    public void shouldThrowUsernameNotFoundExceptionWhenNoUserIsFoundById() {
+    void shouldThrowUsernameNotFoundExceptionWhenNoUserIsFoundById() {
         // Arrange
         String documentID = "12345678";
         UserEntity userEntity = new UserEntity();
@@ -57,7 +57,7 @@ class UserDetailsServiceImplTest {
     }
 
     @Test
-    public void shouldReturnCorrectUserAndRoles() {
+    void shouldReturnCorrectUserAndRoles() {
         // Arrange
         String documentID = "12345678";
         RoleEntity roleEntity = new RoleEntity();
