@@ -18,3 +18,8 @@ management:
     web:
       exposure:
         include: "*"
+
+my:
+  variables:
+    minimum-age: 18
+

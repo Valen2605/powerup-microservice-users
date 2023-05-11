@@ -1,8 +1,10 @@
 package com.pragma.powerup.usermicroservice.domain.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class User {
     private Long id;
     private String name;
@@ -13,19 +15,6 @@ public class User {
     private String mail;
     private String password;
     private Role role;
-
-
-    public User(Long id, String name, String surname, String dniNumber, String phone, LocalDate birthDate, String mail, String password, Role role) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.dniNumber = dniNumber;
-        this.phone = phone;
-        this.birthDate = birthDate;
-        this.mail = mail;
-        this.password = password;
-        this.role = role;
-    }
 
     public Long getId() {
         return id;
