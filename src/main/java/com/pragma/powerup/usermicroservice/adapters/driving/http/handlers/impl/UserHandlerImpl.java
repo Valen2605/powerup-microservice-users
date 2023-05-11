@@ -9,6 +9,8 @@ import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserHandlerImpl implements IUserHandler {
@@ -18,14 +20,32 @@ public class UserHandlerImpl implements IUserHandler {
     private final IUserResponseMapper userResponseMapper;
 
     @Override
-    public void saveOwner(UserRequestDto userRequestDto) {
-        userServicePort.saveOwner(userRequestMapper.toUser(userRequestDto));
+    public void saveUser(UserRequestDto userRequestDto) {
+        userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));
     }
 
     @Override
-    public UserResponseDto getOwner(Long id) {
-        return userResponseMapper.toResponse(userServicePort.getOwner(id));
+    public void deleteUser(UserRequestDto userRequestDto) {
+        userServicePort.deleteUser(userRequestMapper.toUser(userRequestDto));
     }
 
+    @Override
+    public List<UserResponseDto> getProvider(Integer page) {
+        return userResponseMapper.toResponseList(userServicePort.getAllProviders(page));
+    }
 
+    @Override
+    public UserResponseDto getProvider(Long id) {
+        return userResponseMapper.toResponse(userServicePort.getProvider(id));
+    }
+
+    @Override
+    public UserResponseDto getEmployee(Long id) {
+        return userResponseMapper.toResponse(userServicePort.getEmployee(id));
+    }
+
+    @Override
+    public UserResponseDto getClient(Long id) {
+        return userResponseMapper.toResponse(userServicePort.getClient(id));
+    }
 }

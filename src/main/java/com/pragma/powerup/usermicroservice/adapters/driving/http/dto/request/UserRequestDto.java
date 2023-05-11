@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @AllArgsConstructor
 @Getter
@@ -23,12 +23,12 @@ public class UserRequestDto {
     private String dniNumber;
 
     @NotEmpty(message = "The phone must not be empty")
-    @Pattern(regexp = "^\\+?[0-9]{12}$", message = "The phone should only include the + sign and a maximum of 12 numbers")
+    @Pattern(regexp = "^\\+?[0-9]{1,12}$", message = "The phone should only include the + sign and a maximum of 12 numbers")
     private String phone;
 
     @NotNull(message = "The birth Date must not be empty")
     @Past(message = "Date of birth must be prior to the date entered")
-    private LocalDate birthDate;
+    private Date birthDate;
 
     @NotEmpty(message = "The email must not be empty")
     @Email(message= "You must enter a correct email format")
@@ -38,8 +38,8 @@ public class UserRequestDto {
     private String password;
 
     @NotNull(message = "The role must not be empty")
-    @Min(value = 1, message = "The role chosen is not correct")
-    @Max(value = 4, message = "The role chosen is not correct")
+    @Min(value = 1, message = "The role id must not be less than 1")
+    @Max(value = 4, message = "The role id must not be greater than 4")
     private Long idRole;
 
 }
