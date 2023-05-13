@@ -31,7 +31,7 @@ public class UserRequestDto {
     private Date birthDate;
 
     @NotEmpty(message = "The email must not be empty")
-    @Email(message= "You must enter a correct email format")
+    @Pattern(regexp="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", message= "You must enter a correct email format")
     private String mail;
 
     @NotEmpty(message = "The password must not be empty")
