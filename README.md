@@ -20,6 +20,9 @@
 * [Jacoco](https://www.jacoco.org/jacoco/trunk/index.html) - Test coverage tool
 
 
+### Security With
+* [JWT](https://jwt.io/) - Standard tool for transmitting information
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -76,6 +79,12 @@ the domain layer and encapsulates the business logic and rules.
 
 
 ## Entry Points
+
+### Entry point Authentication
+![Image text](img/EntryPointAuthentication.jpg)
+
+### Authentication Response
+![Image text](img/AuthenticationResponse.jpg)
 
 ### Entry point create owner
 ![Image text](img/EntryPointCreateOwner.jpg)
