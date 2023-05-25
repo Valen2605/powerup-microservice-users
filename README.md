@@ -45,7 +45,7 @@ To get a local copy up and running follow these steps.
    # src/main/resources/application-dev.yml
    spring:
       datasource:
-          url: jdbc:mysql://localhost/users
+          url: jdbc:mysql://localhost/powerup
           username: root
           password: <your-password>
    ```
