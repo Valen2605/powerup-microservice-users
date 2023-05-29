@@ -1,15 +1,18 @@
 package com.pragma.powerup.usermicroservice.adapters.driving.http.dto.request;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @Getter
+@Setter
 public class UserRequestDto {
     @NotEmpty(message = "The name must not be empty")
     private String name;
@@ -37,9 +40,7 @@ public class UserRequestDto {
     @NotEmpty(message = "The password must not be empty")
     private String password;
 
-    @NotNull(message = "The role must not be empty")
-    @Min(value = 1, message = "The role chosen is not correct")
-    @Max(value = 4, message = "The role chosen is not correct")
+    @JsonIgnore
     private Long idRole;
 
 }

@@ -1,15 +1,12 @@
 package com.pragma.powerup.usermicroservice.domain.usecase;
 
-import com.pragma.powerup.usermicroservice.configuration.Constants;
 import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
-import com.pragma.powerup.usermicroservice.domain.exceptions.UserNotCreatedException;
 import com.pragma.powerup.usermicroservice.domain.exceptions.UserUnderageException;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class UserUseCase implements IUserServicePort {
     private final IUserPersistencePort userPersistencePort;
@@ -23,24 +20,17 @@ public class UserUseCase implements IUserServicePort {
 
 
     @Override
-    public void saveOwner(User user) {
-
+    public void saveUser(User user) {
         LocalDate localDate = LocalDate.now();
+        Integer currentYear = localDate.getYear();
+        Integer yearBirth = user.getBirthDate().getYear();
+        Integer age = currentYear - yearBirth;
 
-        LocalDate yearBirth = user.getBirthDate();
+        if (age < 18) throw new UserUnderageException();
 
-        Period ageCurrent = Period.between(yearBirth, localDate);
-
-        Integer age = ageCurrent.getYears();
-
-        if (age < minimunAge) throw new UserUnderageException();
-
-        if (!user.getRole().getId().equals(Constants.OWNER_ROLE_ID)) throw new UserNotCreatedException();
-
-        if (user.getRole().getId().equals (Constants.OWNER_ROLE_ID) && age >= minimunAge)
-            userPersistencePort.saveOwner(user);
-
+        if (age >= 18) userPersistencePort.saveUser(user);
     }
+
 
     @Override
     public User getOwner(Long id) {
