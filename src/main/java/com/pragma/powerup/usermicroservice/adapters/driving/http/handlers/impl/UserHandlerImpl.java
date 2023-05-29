@@ -15,6 +15,11 @@ public class UserHandlerImpl implements IUserHandler {
     private final IUserRequestMapper userRequestMapper;
 
     @Override
+    public UserResponseDto getOwner(Long id) {
+        return userResponseMapper.toResponse(userServicePort.getOwner(id));
+    }
+
+    @Override
     public void saveOwner(UserRequestDto userRequestDto) {
         userRequestDto.setIdRole(2L);
         userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));

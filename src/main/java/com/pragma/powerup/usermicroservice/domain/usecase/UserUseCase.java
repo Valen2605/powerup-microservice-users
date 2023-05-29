@@ -10,9 +10,13 @@ import java.time.LocalDate;
 public class UserUseCase implements IUserServicePort {
     private final IUserPersistencePort userPersistencePort;
 
+    @Value("${my.variables.minimum-age}")
+    Integer minimunAge;
+
     public UserUseCase(IUserPersistencePort userPersistencePort) {
         this.userPersistencePort = userPersistencePort;
     }
+
 
     @Override
     public void saveUser(User user) {
@@ -26,4 +30,9 @@ public class UserUseCase implements IUserServicePort {
         if (age >= 18) userPersistencePort.saveUser(user);
     }
 
+
+    @Override
+    public User getOwner(Long id) {
+        return userPersistencePort.getOwner(id);
+    }
 }
