@@ -45,7 +45,7 @@ To get a local copy up and running follow these steps.
    # src/main/resources/application-dev.yml
    spring:
       datasource:
-          url: jdbc:mysql://localhost/users
+          url: jdbc:mysql://localhost/powerup
           username: root
           password: <your-password>
    ```
@@ -92,6 +92,11 @@ the domain layer and encapsulates the business logic and rules.
 ### Exit point create owner
 ![Image text](/img/ExitPointCreateOwner.jpg)
 
+### Entry point create employee
+![Image text](img/EntryPointCreateEmployee.jpg)
+
+### Exit point create employee
+![Image text](/img/ExitPointCreateEmployee.jpg)
 
 ## Author ✒️
 * **Valentina Santa Muñoz** 

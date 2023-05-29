@@ -22,5 +22,3 @@ management:
 my:
   variables:
     minimum-age: 18
-
-
