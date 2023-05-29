@@ -4,6 +4,7 @@ import com.pragma.powerup.usermicroservice.domain.api.IUserServicePort;
 import com.pragma.powerup.usermicroservice.domain.exceptions.UserUnderageException;
 import com.pragma.powerup.usermicroservice.domain.model.User;
 import com.pragma.powerup.usermicroservice.domain.spi.IUserPersistencePort;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
 
