@@ -28,7 +28,7 @@ public class UserUseCase implements IUserServicePort {
 
         if (age < 18) throw new UserUnderageException();
 
-        if (age >= 18) userPersistencePort.saveUser(user);
+        userPersistencePort.saveUser(user);
     }
 
 
