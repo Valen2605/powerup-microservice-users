@@ -33,11 +33,4 @@ public class UserHandlerImpl implements IUserHandler {
         userRequestDto.setIdRole(3L);
         userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));
     }
-
-    @Override
-    public void saveClient(UserRequestDto userRequestDto) {
-        userRequestDto.setIdRole(4L);
-        userServicePort.saveUser(userRequestMapper.toUser(userRequestDto));
-    }
-
 }

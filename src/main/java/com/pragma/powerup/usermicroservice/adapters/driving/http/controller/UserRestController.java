@@ -55,20 +55,6 @@ public class UserRestController {
                 .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.USER_CREATED_MESSAGE));
     }
 
-    @Operation(summary = "Add a new client",
-            responses = {
-                    @ApiResponse(responseCode = "201", description = "Client created",
-                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
-                    @ApiResponse(responseCode = "409", description = "User already exists",
-                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
-                    @ApiResponse(responseCode = "403", description = "Role not allowed for user creation",
-                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
-    @PostMapping("/client")
-    public ResponseEntity<Map<String, String>> saveClient(@Valid @RequestBody UserRequestDto userRequestDto) {
-        userHandler.saveClient(userRequestDto);
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.USER_CREATED_MESSAGE));
-    }
 
     @Operation(summary = "Get a client user",
             responses = {
@@ -81,6 +67,5 @@ public class UserRestController {
         return ResponseEntity.ok(userHandler.getOwner(id));
     }
 
-
-
 }
+
