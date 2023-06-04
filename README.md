@@ -98,5 +98,11 @@ the domain layer and encapsulates the business logic and rules.
 ### Exit point create employee
 ![Image text](/img/ExitPointCreateEmployee.jpg)
 
+### Entry point create client
+![Image text](img/EntryPointCreateClient.jpg)
+
+### Exit point create client
+![Image text](/img/ExitPointCreateClient.jpg)
+
 ## Author ✒️
 * **Valentina Santa Muñoz** 
