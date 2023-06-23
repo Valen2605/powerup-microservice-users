@@ -66,6 +66,5 @@ public class UserRestController {
     public ResponseEntity<UserResponseDto> getOwner(@PathVariable Long id) {
         return ResponseEntity.ok(userHandler.getOwner(id));
     }
-
 }
 
